@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026年马年新春贺卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FF6347 100%);
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 背景装饰 */
+        .bg-decoration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .bg-decoration::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('images/bj.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.1;
+            animation: float 30s linear infinite;
+        }
+
+        .bg-decoration::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            100% {
+                transform: translateX(-100px) translateY(-100px);
+            }
+        }
+
+        /* 粒子效果 */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ffd700;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: particleFloat 10s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-100px) translateX(300px);
+                opacity: 0;
+            }
+        }
+
+        /* 贺卡主体 */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(230, 57, 70, 0.2), 0 0 100px rgba(255, 105, 180, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 40px auto;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            animation: cardFloat 6s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 30px 80px rgba(230, 57, 70, 0.3), 0 0 150px rgba(255, 105, 180, 0.2);
+        }
+
+        @keyframes cardFloat {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-10px) rotate(0.5deg);
+            }
+        }
+
+        /* 卡片装饰角 */
+        .card::before,
+        .card::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .card::before {
+            top: -30px;
+            left: -30px;
+        }
+
+        .card::after {
+            bottom: -30px;
+            right: -30px;
+        }
+
+        /* 传统纹样装饰 */
+        .card-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 30px;
+            padding: 5px;
+            background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* 贺卡头部 */
+        .card-header {
+            background: linear-gradient(135deg, #c1121f 0%, #e63946 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .card-header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: bold;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+
+            100% {
+                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        .card-header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        /* 贺卡主体内容 */
+        .card-body {
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* 主图片 */
+        .main-image {
+            width: 300px;
+            height: 250px;
+            margin: 0 auto 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 3px solid rgba(255, 215, 0, 0.5);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .main-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .main-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .main-image:hover {
+            transform: rotate(2deg) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 祝福语 */
+        .greeting {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #c1121f;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            animation: greetingPulse 3s ease-in-out infinite;
+        }
+
+        @keyframes greetingPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .wishes {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 30px;
+            font-weight: 500;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .wishes::before,
+        .wishes::after {
+            content: '❀';
+            position: absolute;
+            color: #ffd700;
+            font-size: 20px;
+        }
+
+        .wishes::before {
+            top: 10px;
+            left: 10px;
+        }
+
+        .wishes::after {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        /* 诗词佳句 */
+        .poem {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #c1121f;
+            margin-bottom: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .poem-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            max-width: 380px;
+            margin: 0 auto;
+        }
+
+        .poem-line {
+            text-align: center;
+        }
+
+        /* 装饰元素 */
+        .decorations {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .decoration {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+            animation: decorationPulse 2s ease-in-out infinite;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .decoration:hover {
+            transform: scale(1.2) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        .decoration:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .decoration:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        @keyframes decorationPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* 个性化功能 */
+        .personalize {
+            margin-bottom: 25px;
+        }
+
+        .signature-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid rgba(230, 57, 70, 0.3);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .signature-input:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+        }
+
+        /* 贺卡底部 */
+        .card-footer {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 215, 0, 0.3);
+            position: relative;
+        }
+
+        .card-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #e63946, #ffd700, #e63946);
+        }
+
+        .card-footer p {
+            color: #6c757d;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .card-footer .signature {
+            color: #8B0000;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        /* 印章效果 */
+        .seal {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 0 2px 10px rgba(230, 57, 70, 0.3);
+            opacity: 0.8;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .card {
+                margin: 10px;
+            }
+
+            .card-header {
+                padding: 30px 20px;
+            }
+
+            .card-header h1 {
+                font-size: 24px;
+            }
+
+            .card-body {
+                padding: 30px 20px;
+            }
+
+            .main-image {
+                width: 200px;
+                height: 180px;
+            }
+
+            .greeting {
+                font-size: 20px;
+            }
+
+            .wishes {
+                font-size: 14px;
+                padding: 15px;
+            }
+
+            .decorations {
+                gap: 10px;
+            }
+
+            .decoration {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+
+            .seal {
+                width: 40px;
+                height: 40px;
+                font-size: 10px;
+            }
+        }
+
+        /* 容器样式 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+
+        /* 底部装饰样式 */
+        .footer-decoration {
+            max-width: 800px;
+            width: 100%;
+            margin: 60px auto 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .footer-content h3 {
+            font-size: 24px;
+            color: #c1121f;
+            margin-bottom: 15px;
+        }
+
+        .footer-content p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 24px;
+        }
+
+        .footer-icons span {
+            animation: iconFloat 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .footer-icons span:hover {
+            transform: scale(1.3) rotate(15deg);
+        }
+
+        .footer-icons span:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .footer-icons span:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .footer-icons span:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .footer-icons span:nth-child(5) {
+            animation-delay: 2s;
+        }
+
+        @keyframes iconFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* 看直播部分样式 */
+        .live-stream {
+            max-width: 800px;
+            width: 100%;
+            margin: 60px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(230, 57, 70, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .live-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .live-header h2 {
+            font-size: 28px;
+            color: #c1121f;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .live-header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .live-content {
+            display: flex;
+            justify-content: center;
+        }
+
+        .live-link {
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+        }
+
+        .live-card {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .live-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .live-icon {
+            font-size: 48px;
+            margin-right: 20px;
+            animation: livePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes livePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .live-info {
+            flex: 1;
+        }
+
+        .live-info h3 {
+            font-size: 20px;
+            color: #8B0000;
+            margin-bottom: 5px;
+        }
+
+        .live-info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .live-arrow {
+            font-size: 24px;
+            color: #8B0000;
+            font-weight: bold;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+
+
+            .footer-decoration {
+                padding: 20px;
+                margin: 40px auto 20px;
+            }
+
+            .footer-content h3 {
+                font-size: 20px;
+            }
+
+            /* 直播部分响应式设计 */
+            .live-stream {
+                padding: 20px;
+                margin: 40px auto;
+            }
+
+            .live-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .live-icon {
+                font-size: 36px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .live-info h3 {
+                font-size: 18px;
+            }
+
+            .live-arrow {
+                margin-top: 10px;
+            }
+        }
+
+        /* 打印样式 */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .card,
+            .footer-decoration {
+                box-shadow: none;
+                border: 2px solid #8B0000;
+            }
+
+            .particles,
+            .bg-decoration {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 背景装饰 -->
+    <div class="bg-decoration"></div>
+
+    <!-- 粒子效果 -->
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <!-- 贺卡 -->
+        <div class="card">
+            <div class="card-border"></div>
+
+            <div class="card-header">
+                <h1>2026年马年新春快乐</h1>
+                <p>农历丙午年 · 大年初一</p>
+            </div>
+
+            <div class="card-body">
+                <div class="main-image">
+                    <img src="images/2026mn.png" alt="马年新春">
+                </div>
+
+                <div class="greeting">🐎 龙马精神 · 马到成功 🐎</div>
+
+                <div class="wishes">
+                    <p>在这辞旧迎新的美好时刻，祝愿您：</p>
+                    <p>新年大吉大利，万事如意，财源广进，阖家幸福！</p>
+                    <p>愿马年带给您无尽的好运和欢乐，事业蒸蒸日上，生活美满安康！</p>
+                </div>
+
+                <div class="poem">
+                    <div class="poem-grid">
+                        <div class="poem-line">马到成功事业兴，</div>
+                        <div class="poem-line">年丰人寿合家欢，</div>
+                        <div class="poem-line">新春大吉鸿运开，</div>
+                        <div class="poem-line">快乐安康福满堂。</div>
+                    </div>
+                </div>
+
+                <div class="decorations">
+                    <div class="decoration" title="红包">🧧</div>
+                    <div class="decoration" title="灯笼">🏮</div>
+                    <div class="decoration" title="花朵">🌸</div>
+                </div>
+
+                <div class="personalize">
+                    <input type="text" class="signature-input" placeholder="请输入您的名字，为贺卡添加个性化签名..." id="signatureInput">
+                </div>
+            </div>
+
+            <div class="card-footer">
+                <p>© 2026 马年新春贺卡 | 祝您新年快乐，万事如意！</p>
+                <p class="signature" id="signatureDisplay"></p>
+                <div class="seal">吉祥</div>
+            </div>
+        </div>
+
+
+
+        <!-- 看直播部分 -->
+        <div class="live-stream">
+            <div class="live-header">
+                <h2>📺 看直播</h2>
+                <p>观看精彩的新年直播节目</p>
+            </div>
+            <div class="live-content">
+                <a href="https://app.cctv.com/special/m/topic/index.html?itemId=2676" target="_blank" class="live-link">
+                    <div class="live-card">
+                        <div class="live-icon">🎥</div>
+                        <div class="live-info">
+                            <h3>央视新年直播</h3>
+                            <p>点击进入观看精彩的新年节目</p>
+                        </div>
+                        <div class="live-arrow">→</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- 底部装饰 -->
+        <div class="footer-decoration">
+            <div class="footer-content">
+                <h3>🎆 2026年马年大吉 🎆</h3>
+                <p>愿您在新的一年里，心想事成，万事如意！</p>
+                <div class="footer-icons">
+                    <span>🐎</span>
+                    <span>🧧</span>
+                    <span>🏮</span>
+                    <span>🌸</span>
+                    <span>🎊</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 粒子效果
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 5 + 8) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // 个性化签名
+        function setupSignature() {
+            const input = document.getElementById('signatureInput');
+            const display = document.getElementById('signatureDisplay');
+
+            input.addEventListener('input', function () {
+                if (this.value) {
+                    display.textContent = '签名：' + this.value;
+                } else {
+                    display.textContent = '';
+                }
+            });
+        }
+
+        // 装饰元素交互
+        function setupDecorations() {
+            const decorations = document.querySelectorAll('.decoration');
+            const wishes = [
+                '🧧 恭喜发财，红包拿来！',
+                '🏮 灯笼高挂，福气临门！',
+                '🌸 花开富贵，吉祥如意！'
+            ];
+
+            decorations.forEach((decoration, index) => {
+                decoration.addEventListener('click', function () {
+                    showWish(wishes[index]);
+                });
+            });
+        }
+
+        // 显示祝福语
+        function showWish(wish) {
+            const wishElement = document.createElement('div');
+            wishElement.style.position = 'fixed';
+            wishElement.style.top = '50%';
+            wishElement.style.left = '50%';
+            wishElement.style.transform = 'translate(-50%, -50%)';
+            wishElement.style.background = 'rgba(255, 215, 0, 0.9)';
+            wishElement.style.color = '#8B0000';
+            wishElement.style.padding = '20px 30px';
+            wishElement.style.borderRadius = '20px';
+            wishElement.style.fontSize = '18px';
+            wishElement.style.fontWeight = 'bold';
+            wishElement.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+            wishElement.style.zIndex = '10000';
+            wishElement.style.animation = 'wishShow 2s ease-in-out forwards';
+            wishElement.textContent = wish;
+
+            document.body.appendChild(wishElement);
+
+            setTimeout(() => {
+                wishElement.remove();
+            }, 2000);
+        }
+
+        // 添加愿望动画
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes wishShow {
+                0% {
+                    transform: translate(-50%, -50%) scale(0);
+                    opacity: 0;
+                }
+                50% {
+                    transform: translate(-50%, -50%) scale(1.1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translate(-50%, -50%) scale(1);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // 页面加载完成后初始化
+        window.addEventListener('load', function () {
+            createParticles();
+            setupSignature();
+            setupDecorations();
+
+            // 页面加载动画
+            const elements = [
+                document.querySelector('.card'),
+                document.querySelector('.live-stream'),
+                document.querySelector('.footer-decoration')
+            ];
+
+            elements.forEach((element, index) => {
+                if (element) {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(50px)';
+                    element.style.transition = 'all 0.8s ease';
+
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, 100 + (index * 200));
+                }
+            });
+        });
+
+        // 键盘快捷键
+        window.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' && document.activeElement.id === 'signatureInput') {
+                e.preventDefault();
+                document.activeElement.blur();
+            }
+        });
+
+        // 触摸设备支持
+        if ('ontouchstart' in window) {
+            document.addEventListener('touchstart', function () { }, false);
+        }
+
+        // 默认照片数据
+        const defaultPhotos = [
+            {
+                src: "images/2026mn.png",
+                caption: "照片库 1"
+            },
+            {
+                src: "images/2026mn.png",
+                caption: "照片库 2"
+            },
+            {
+                src: "images/2026mn.png",
+                caption: "照片库 3"
+            },
+            {
+                src: "images/2026mn.png",
+                caption: "照片库 4"
+            }
+        ];
+
+
+
+
+
+
+
+
+
+
+
+        // 显示通知
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.position = 'fixed';
+            notification.style.top = '20px';
+            notification.style.right = '20px';
+            notification.style.background = 'rgba(0, 0, 0, 0.8)';
+            notification.style.color = 'white';
+            notification.style.padding = '15px 20px';
+            notification.style.borderRadius = '10px';
+            notification.style.zIndex = '10000';
+            notification.style.animation = 'slideIn 0.3s ease-out';
+
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease-in forwards';
+                setTimeout(() => {
+                    notification.remove();
+                }, 300);
+            }, 3000);
+        }
+
+        // 从URL参数加载照片
+        function loadPhotosFromUrl() {
+            try {
+                console.log('开始检查URL参数，加载分享的照片');
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const photosData = urlParams.get('photos');
+
+                if (photosData) {
+                    console.log('找到分享照片参数，开始解析...');
+                    try {
+                        const decodedData = decodeURIComponent(atob(photosData));
+                        console.log('解码成功，开始解析JSON...');
+                        const photos = JSON.parse(decodedData);
+                        console.log('解析JSON成功，找到', photos.length, '张分享的照片');
+
+                        // 标记为分享的照片，不创建链接结构
+                        photos.forEach((photo, index) => {
+                            photo.isShared = true;
+                            if (!photo.caption) {
+                                photo.caption = `分享的照片 ${index + 1}`;
+                            }
+                            console.log(`分享的照片 ${index + 1}:`, photo.caption);
+                        });
+
+                        updatePhotoGrid(photos);
+                        showNotification('已成功加载分享的照片合集！');
+                        console.log('分享照片加载完成');
+                    } catch (error) {
+                        console.error('加载分享照片失败:', error);
+                        showNotification('加载分享照片失败，显示默认照片库');
+                        updatePhotoGrid(defaultPhotos);
+                    }
+                } else {
+                    // 没有参数时使用默认照片
+                    console.log('没有找到分享照片参数，使用默认照片库');
+                    updatePhotoGrid(defaultPhotos);
+                }
+            } catch (error) {
+                console.error('加载照片系统失败:', error);
+                showNotification('加载照片系统失败，显示默认照片库');
+                // 确保即使发生错误也能显示默认照片
+                updatePhotoGrid(defaultPhotos);
+            }
+        }
+
+        // 添加通知动画
+        const notificationStyle = document.createElement('style');
+        notificationStyle.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(notificationStyle);
+
+
+    </script>
+</body>
+
+</html>
